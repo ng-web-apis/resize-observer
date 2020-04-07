@@ -1,9 +1,9 @@
 <section *ngIf="support; else not" class="wrapper">
     <h1
         class="element"
+        waResizeBox="content-box"
         [attr.data-ratio]="ratio"
         [style.width.%]="widthPercent"
-        waResizeBox="content-box"
         (waResizeObserver)="onResize($event)"
     >
         Resizable box

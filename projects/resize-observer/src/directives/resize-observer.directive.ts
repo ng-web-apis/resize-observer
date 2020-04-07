@@ -9,6 +9,7 @@ export function boxFactory(
     return box;
 }
 
+// @dynamic
 @Directive({
     selector: '[waResizeObserver]',
     providers: [
@@ -27,7 +28,7 @@ export class ResizeObserverDirective {
     constructor(
         @Inject(ResizeObserverService)
         entries$: Observable<ResizeObserverEntry[]>,
-        @Attribute('waResizeBox') _box: string | null,
+        @Attribute('waResizeBox') _box: 'content-box' | 'border-box' | null,
     ) {
         this.waResizeObserver = entries$;
     }

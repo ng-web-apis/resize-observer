@@ -4,6 +4,7 @@ import {finalize, share} from 'rxjs/operators';
 import {RESIZE_OPTION_BOX} from '../tokens/resize-option-box';
 import {RESIZE_OBSERVER_SUPPORT} from '../tokens/support';
 
+// @dynamic
 @Injectable()
 export class ResizeObserverService extends Observable<
     ReadonlyArray<ResizeObserverEntry>

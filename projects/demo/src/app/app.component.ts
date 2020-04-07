@@ -26,7 +26,7 @@ export class AppComponent {
     }
 
     onResize(entry: ResizeObserverEntry[]) {
-        this.ratio = Math.round(entry[0].contentRect.width / 70);
+        this.ratio = Math.round(entry[0].contentRect.width / 110);
         this.changeDetectorRef.detectChanges();
     }
 }

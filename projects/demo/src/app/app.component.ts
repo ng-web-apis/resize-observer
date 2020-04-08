@@ -1,10 +1,4 @@
-import {
-    ChangeDetectionStrategy,
-    ChangeDetectorRef,
-    Component,
-    Inject,
-} from '@angular/core';
-import {FormControl} from '@angular/forms';
+import {ChangeDetectionStrategy, Component, Inject} from '@angular/core';
 import {RESIZE_OBSERVER_SUPPORT} from 'projects/resize-observer/src/public-api';
 
 @Component({
@@ -16,17 +10,10 @@ import {RESIZE_OBSERVER_SUPPORT} from 'projects/resize-observer/src/public-api';
 export class AppComponent {
     ratio = 0;
     widthPercent = 50;
-    widthControl = new FormControl(50);
 
-    constructor(
-        @Inject(RESIZE_OBSERVER_SUPPORT) readonly support: boolean,
-        private changeDetectorRef: ChangeDetectorRef,
-    ) {
-        this.widthControl.valueChanges.subscribe(value => (this.widthPercent = value));
-    }
+    constructor(@Inject(RESIZE_OBSERVER_SUPPORT) readonly support: boolean) {}
 
     onResize(entry: ResizeObserverEntry[]) {
         this.ratio = Math.round(entry[0].contentRect.width / 110);
-        this.changeDetectorRef.detectChanges();
     }
 }

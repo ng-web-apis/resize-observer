@@ -4,8 +4,8 @@ import {ResizeObserverService} from '../services/resize-observer.service';
 import {RESIZE_OPTION_BOX} from '../tokens/resize-option-box';
 
 export function boxFactory(
-    box: ResizeObserverOptions['box'],
-): ResizeObserverOptions['box'] {
+    box: ResizeObserverOptions['box'] | null,
+): ResizeObserverOptions['box'] | null {
     return box;
 }
 
@@ -28,7 +28,7 @@ export class ResizeObserverDirective {
     constructor(
         @Inject(ResizeObserverService)
         entries$: Observable<ResizeObserverEntry[]>,
-        @Attribute('waResizeBox') _box: 'content-box' | 'border-box' | null,
+        @Attribute('waResizeBox') _box: ResizeObserverOptions['box'] | null,
     ) {
         this.waResizeObserver = entries$;
     }

@@ -8,10 +8,17 @@
     >
         Resizable box
     </h1>
-    <div class="width-slider">
-        <label>Adjust width:</label
-        ><input type="range" value="50" min="5" max="100" [formControl]="widthControl" />
-    </div>
+    <label class="width-slider">
+        Adjust width:
+        <input
+            class="slider"
+            type="range"
+            value="50"
+            min="5"
+            max="100"
+            [(ngModel)]="widthPercent"
+        />
+    </label>
 </section>
 <ng-template #not>
     Your browser does not support Resize Observer API

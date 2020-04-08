@@ -39,7 +39,7 @@ npm i @ng-web-apis/resize-observer
 ```
 
 Use `waResizeBox` to configure
-[ResizeObserver options](https://developer.mozilla.org/en-US/docs/Web/API/resizeObserver/ResizeObserver)
+[ResizeObserver options](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver/observe)
 
 **NOTE:** Keep in mind these are used one time in constructor so you cannot use
 binding, only strings.
@@ -74,8 +74,11 @@ export class MyComponent {
 ## Browser support
 
 | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/) | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/) | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/) | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/) |
+[<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari-ios/safari-ios_48x48.png" alt="iOS Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/) |
 | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|                                                                                                15+                                                                                                |                                                                                                  55+                                                                                                  |                                                                                                51+                                                                                                 |                                                                                               12.2+                                                                                                |
+:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|                                                                                                79+                                                                                                |                                                                                                  69+                                                                                                  |                                                                                                64+                                                                                                 |                                                                                               13.1+                                                                                                
+|                                                                                               13.4
 
 > You can use [polyfill](https://www.npmjs.com/package/resize-observer-polyfill) to support older browsers
 

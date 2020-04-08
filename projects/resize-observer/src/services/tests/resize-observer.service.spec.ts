@@ -1,3 +1,4 @@
+import {NgZone} from '@angular/core';
 import {ResizeObserverService} from '../resize-observer.service';
 
 describe('ResizeObserverService', () => {
@@ -9,6 +10,7 @@ describe('ResizeObserverService', () => {
             },
             false,
             null,
+            new NgZone({}),
         );
 
         service.subscribe({

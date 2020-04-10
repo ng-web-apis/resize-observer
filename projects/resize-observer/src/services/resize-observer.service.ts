@@ -31,11 +31,7 @@ export class ResizeObserverService extends Observable<
         });
 
         return this.pipe(
-            finalize(() => {
-                if (!!observer) {
-                    observer.disconnect();
-                }
-            }),
+            finalize(() => observer.disconnect()),
             share(),
         );
     }

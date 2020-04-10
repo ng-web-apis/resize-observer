@@ -1,6 +1,6 @@
 {
     "name": "@ng-web-apis/resize-observer",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "peerDependencies": {
         "@angular/core": ">=6.0.0",
         "@ng-web-apis/common": ">=1.1.0",

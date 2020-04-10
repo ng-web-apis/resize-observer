@@ -11,9 +11,9 @@ export class ResizeObserverService extends Observable<
 > {
     constructor(
         @Inject(ElementRef) {nativeElement}: ElementRef<Element>,
+        @Inject(NgZone) ngZone: NgZone,
         @Inject(RESIZE_OBSERVER_SUPPORT) support: boolean,
         @Inject(RESIZE_OPTION_BOX) box: ResizeObserverOptions['box'],
-        ngZone: NgZone,
     ) {
         let observer: ResizeObserver;
 

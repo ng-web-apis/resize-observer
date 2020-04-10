@@ -8,9 +8,9 @@ describe('ResizeObserverService', () => {
             {
                 nativeElement: document.createElement('DIV'),
             },
+            new NgZone({}),
             false,
             'content-box',
-            new NgZone({}),
         );
 
         service.subscribe({

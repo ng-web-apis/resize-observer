@@ -1,12 +1,12 @@
 import {Attribute, Directive, Inject, Output} from '@angular/core';
 import {Observable} from 'rxjs';
 import {ResizeObserverService} from '../services/resize-observer.service';
-import {RESIZE_OPTION_BOX} from '../tokens/resize-option-box';
+import {RESIZE_OPTION_BOX, RESIZE_OPTION_BOX_DEFAULT} from '../tokens/resize-option-box';
 
 export function boxFactory(
-    box: ResizeObserverOptions['box'],
+    box: ResizeObserverOptions['box'] | null,
 ): ResizeObserverOptions['box'] {
-    return box;
+    return box || RESIZE_OPTION_BOX_DEFAULT;
 }
 
 // @dynamic

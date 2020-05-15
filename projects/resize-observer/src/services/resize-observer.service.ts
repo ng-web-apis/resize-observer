@@ -29,7 +29,9 @@ export class ResizeObserverService extends Observable<
             });
             observer.observe(nativeElement, {box});
 
-            return () => observer.disconnect;
+            return () => {
+                observer.disconnect();
+            };
         });
 
         return this.pipe(share());

@@ -1,6 +1,6 @@
 import {ElementRef, Inject, Injectable, NgZone} from '@angular/core';
 import {Observable} from 'rxjs';
-import {finalize, share} from 'rxjs/operators';
+import {share} from 'rxjs/operators';
 import {RESIZE_OPTION_BOX} from '../tokens/resize-option-box';
 import {RESIZE_OBSERVER_SUPPORT} from '../tokens/support';
 
@@ -28,11 +28,12 @@ export class ResizeObserverService extends Observable<
                 });
             });
             observer.observe(nativeElement, {box});
+
+            return () => {
+                observer.disconnect();
+            };
         });
 
-        return this.pipe(
-            finalize(() => observer.disconnect()),
-            share(),
-        );
+        return this.pipe(share());
     }
 }

@@ -1,7 +1,18 @@
-import {Attribute, Directive, Inject, Output} from '@angular/core';
+import {Attribute, Directive, ElementRef, Inject, Output} from '@angular/core';
 import {Observable} from 'rxjs';
 import {ResizeObserverService} from '../services/resize-observer.service';
 import {RESIZE_OPTION_BOX, RESIZE_OPTION_BOX_DEFAULT} from '../tokens/resize-option-box';
+
+// TODO switch to Attribute once https://github.com/angular/angular/issues/36479 is fixed
+export function boxExtractor({
+    nativeElement,
+}: ElementRef<Element>): ResizeObserverOptions['box'] {
+    const attribute = nativeElement.getAttribute(
+        'waResizeBox',
+    ) as ResizeObserverOptions['box'];
+
+    return boxFactory(attribute);
+}
 
 export function boxFactory(
     box: ResizeObserverOptions['box'] | null,
@@ -16,8 +27,8 @@ export function boxFactory(
         ResizeObserverService,
         {
             provide: RESIZE_OPTION_BOX,
-            deps: [[new Attribute('waResizeBox')]],
-            useFactory: boxFactory,
+            deps: [ElementRef],
+            useFactory: boxExtractor,
         },
     ],
 })

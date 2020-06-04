@@ -29,6 +29,11 @@ describe('Resize Observer token', () => {
     it('defined', () => {
         expect(service).toBeDefined();
     });
+
+    it('disconnect', () => {
+        service.subscribe().unsubscribe();
+        expect(service).toBeDefined();
+    });
 });
 
 describe('throws when not supported', () => {

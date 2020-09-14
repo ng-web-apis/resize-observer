@@ -26,6 +26,12 @@ Now install the package:
 npm i @ng-web-apis/resize-observer
 ```
 
+Also, you need to install types:
+
+```
+npm install --save @types/resize-observer-browser
+```
+
 ## Usage
 
 1. Use `waResizeObserver` directive to observe an element:

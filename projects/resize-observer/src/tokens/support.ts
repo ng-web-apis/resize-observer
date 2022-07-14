@@ -5,6 +5,6 @@ export const RESIZE_OBSERVER_SUPPORT = new InjectionToken<boolean>(
     'Resize Observer API support',
     {
         providedIn: 'root',
-        factory: () => !!inject(WINDOW).ResizeObserver,
+        factory: () => !!(inject(WINDOW) as any).ResizeObserver,
     },
 );

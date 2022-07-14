@@ -1,19 +1,17 @@
 import {ElementRef, Inject, Injectable, NgZone} from '@angular/core';
 import {Observable} from 'rxjs';
 import {share} from 'rxjs/operators';
+
 import {RESIZE_OPTION_BOX} from '../tokens/resize-option-box';
 import {RESIZE_OBSERVER_SUPPORT} from '../tokens/support';
 
-// @dynamic
 @Injectable()
-export class ResizeObserverService extends Observable<
-    ReadonlyArray<ResizeObserverEntry>
-> {
+export class ResizeObserverService extends Observable<readonly ResizeObserverEntry[]> {
     constructor(
         @Inject(ElementRef) {nativeElement}: ElementRef<Element>,
         @Inject(NgZone) ngZone: NgZone,
         @Inject(RESIZE_OBSERVER_SUPPORT) support: boolean,
-        @Inject(RESIZE_OPTION_BOX) box: ResizeObserverOptions['box'],
+        @Inject(RESIZE_OPTION_BOX) box: ResizeObserverBoxOptions,
     ) {
         let observer: ResizeObserver;
 

@@ -1,6 +1,7 @@
 import {ElementRef} from '@angular/core';
 import {TestBed} from '@angular/core/testing';
 import {catchError} from 'rxjs/operators';
+
 import {RESIZE_OBSERVER_SUPPORT} from '../../tokens/support';
 import {ResizeObserverService} from '../resize-observer.service';
 
@@ -11,7 +12,6 @@ describe('Resize Observer token', () => {
         TestBed.configureTestingModule({
             providers: [
                 ResizeObserverService,
-
                 {
                     provide: ElementRef,
                     useValue: {
@@ -21,7 +21,7 @@ describe('Resize Observer token', () => {
             ],
         });
 
-        service = TestBed.get(ResizeObserverService).pipe(
+        service = TestBed.inject(ResizeObserverService).pipe(
             catchError((_err, caught) => caught),
         );
     });
@@ -41,7 +41,6 @@ describe('throws when not supported', () => {
         TestBed.configureTestingModule({
             providers: [
                 ResizeObserverService,
-
                 {
                     provide: ElementRef,
                     useValue: {

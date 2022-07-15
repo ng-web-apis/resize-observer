@@ -1,6 +1,7 @@
 # ![ng-web-apis logo](projects/demo/src/assets/logo.svg) Resize Observer API for Angular
 
-> Part of <img src="projects/demo/src/assets/web-api.svg" align="top"> [Web APIs for Angular](https://ng-web-apis.github.io/)
+> Part of <img src="projects/demo/src/assets/web-api.svg" align="top"> >
+> [Web APIs for Angular](https://ng-web-apis.github.io/)
 
 [![npm version](https://img.shields.io/npm/v/@ng-web-apis/resize-observer.svg)](https://npmjs.com/package/@ng-web-apis/resize-observer)
 [![npm bundle size](https://img.shields.io/bundlephobia/minzip/@ng-web-apis/resize-observer)](https://bundlephobia.com/result?p=@ng-web-apis/resize-observer)
@@ -9,8 +10,7 @@
 [![angular-open-source-starter](https://img.shields.io/badge/made%20with-angular--open--source--starter-d81676?logo=angular)](https://github.com/TinkoffCreditSystems/angular-open-source-starter)
 
 This is a library for declarative use of
-[Resize Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Resize_Observer_API)
-with Angular.
+[Resize Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Resize_Observer_API) with Angular.
 
 ## Install
 
@@ -26,12 +26,6 @@ Now install the package:
 npm i @ng-web-apis/resize-observer
 ```
 
-Also, you need to install types:
-
-```
-npm install --save-dev @types/resize-observer-browser
-```
-
 ## Usage
 
 1. Import `ResizeObserverModule` to the module where you plan to use it.
@@ -39,42 +33,38 @@ npm install --save-dev @types/resize-observer-browser
 
 ```html
 <section>
-    <h1 waResizeBox="content-box" (waResizeObserver)="onResize($event)">
-        I'm being observed
-    </h1>
+  <h1 waResizeBox="content-box" (waResizeObserver)="onResize($event)">I'm being observed</h1>
 </section>
 ```
 
 Use `waResizeBox` to configure
 [ResizeObserver options](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver/observe)
 
-**NOTE:** Keep in mind these are used one time in constructor so you cannot use
-binding, only strings.
+**NOTE:** Keep in mind these are used one time in constructor so you cannot use binding, only strings.
 
 ## Service
 
-Alternatively you can use `Observable`-based `ResizeObserverService` and provide token
-`RESIZE_OPTION_BOX` manually:
+Alternatively you can use `Observable`-based `ResizeObserverService` and provide token `RESIZE_OPTION_BOX` manually:
 
 ```typescript
 @Component({
-    selector: 'my-component',
-    providers: [
-        ResizeObserverService,
-        {
-            provide: RESIZE_OPTION_BOX,
-            useValue: 'border-box',
-        },
-    ],
+  selector: 'my-component',
+  providers: [
+    ResizeObserverService,
+    {
+      provide: RESIZE_OPTION_BOX,
+      useValue: 'border-box',
+    },
+  ],
 })
 export class MyComponent {
-    constructor(@Inject(ResizeObserverService) entries$: ResizeObserverService) {
-        entries$.subscribe(entries => {
-            // This will trigger when the component resizes
-            // Don't forget to unsubscribe
-            console.log(entries);
-        });
-    }
+  constructor(@Inject(ResizeObserverService) entries$: ResizeObserverService) {
+    entries$.subscribe(entries => {
+      // This will trigger when the component resizes
+      // Don't forget to unsubscribe
+      console.log(entries);
+    });
+  }
 }
 ```
 
@@ -96,7 +86,7 @@ Other [Web APIs for Angular](https://ng-web-apis.github.io/) by [@ng-web-apis](h
 
 ## Open-source
 
-Do you also want to open-source something, but hate the collateral work?
-Check out this [Angular Open-source Library Starter](https://github.com/TinkoffCreditSystems/angular-open-source-starter)
-we’ve created for our projects. It got you covered on continuous integration,
-pre-commit checks, linting, versioning + changelog, code coverage and all that jazz.
+Do you also want to open-source something, but hate the collateral work? Check out this
+[Angular Open-source Library Starter](https://github.com/TinkoffCreditSystems/angular-open-source-starter) we’ve created
+for our projects. It got you covered on continuous integration, pre-commit checks, linting, versioning + changelog, code
+coverage and all that jazz.

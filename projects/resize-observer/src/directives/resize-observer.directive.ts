@@ -1,26 +1,26 @@
 import {Attribute, Directive, ElementRef, Inject, Output} from '@angular/core';
 import {Observable} from 'rxjs';
+
 import {ResizeObserverService} from '../services/resize-observer.service';
 import {RESIZE_OPTION_BOX, RESIZE_OPTION_BOX_DEFAULT} from '../tokens/resize-option-box';
 
 // TODO switch to Attribute once https://github.com/angular/angular/issues/36479 is fixed
 export function boxExtractor({
     nativeElement,
-}: ElementRef<Element>): ResizeObserverOptions['box'] {
+}: ElementRef<Element>): ResizeObserverBoxOptions {
     const attribute = nativeElement.getAttribute(
         'waResizeBox',
-    ) as ResizeObserverOptions['box'];
+    ) as ResizeObserverBoxOptions;
 
     return boxFactory(attribute);
 }
 
 export function boxFactory(
-    box: ResizeObserverOptions['box'] | null,
-): ResizeObserverOptions['box'] {
+    box: ResizeObserverBoxOptions | null,
+): ResizeObserverBoxOptions {
     return box || RESIZE_OPTION_BOX_DEFAULT;
 }
 
-// @dynamic
 @Directive({
     selector: '[waResizeObserver]',
     providers: [
@@ -39,7 +39,7 @@ export class ResizeObserverDirective {
     constructor(
         @Inject(ResizeObserverService)
         entries$: Observable<ResizeObserverEntry[]>,
-        @Attribute('waResizeBox') _box: ResizeObserverOptions['box'],
+        @Attribute('waResizeBox') _box: ResizeObserverBoxOptions,
     ) {
         this.waResizeObserver = entries$;
     }
